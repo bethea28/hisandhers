@@ -2,7 +2,8 @@ import React from 'react'
 import { Platform } from 'react-native'
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
+  createAppContainer
 } from 'react-navigation'
 
 import TabBarIcon from '../components/TabBarIcon'
@@ -15,73 +16,16 @@ const config = Platform.select({
   default: {}
 })
 
-const HomeStack = createStackNavigator(
+const RootStack = createStackNavigator(
   {
-    Home: HomeScreen
-  },
-  config
-)
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  )
-}
-
-HomeStack.path = ''
-
-const FormStack = createStackNavigator(
-  {
+    Home: HomeScreen,
     Form: FormScreen
   },
-  config
-)
-
-FormStack.navigationOptions = {
-  tabBarLabel: 'Form'
-  // tabBarIcon: ({ focused }) => (
-  //   <TabBarIcon
-  //     focused={focused}
-  //     name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-  //   />
-  // )
-}
-
-FormStack.path = ''
-
-const SettingsStack = createStackNavigator(
   {
-    Settings: SettingsScreen
-  },
-  config
+    initialRouteName: 'Home'
+  }
 )
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  )
-}
-
-SettingsStack.path = ''
-
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  FormStack,
-  SettingsStack
-})
-
-tabNavigator.path = ''
+const tabNavigator = createAppContainer(RootStack)
 
 export default tabNavigator

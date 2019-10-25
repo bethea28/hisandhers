@@ -29,20 +29,17 @@ export default function HomeScreen(props) {
           onPress={() => {
             props.navigation.push('Form')
           }}
-          // onPress={() => this.props.navigation.navigate('FormScreen')}
           color="blue"
           pronoun="his"
         />
         <ProNoun
-          onPress={() => {
-            props.navigation.push('Form')
-          }}
+          onPress={() => props.navigation.push('Form')}
           color="pink"
           styles={{ marginTop: 20 }}
           pronoun="her"
         />
       </View>
-      <ScrollView
+      {/* <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
@@ -80,9 +77,9 @@ export default function HomeScreen(props) {
             </Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
+      </ScrollView> */}
 
-      <View style={styles.tabBarInfoContainer}>
+      {/* <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
           This is a tab bar. You can edit it in:
         </Text>
@@ -94,7 +91,7 @@ export default function HomeScreen(props) {
             navigation/MainTabNavigator.js
           </MonoText>
         </View>
-      </View>
+      </View> */}
     </View>
   )
 }

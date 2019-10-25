@@ -1,16 +1,18 @@
 import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet, View, TextInput } from 'react-native'
 import { ExpoLinksView } from '@expo/samples'
 
 export default function FormScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <View style={styles.container}>
+      <TextInput
+        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
+        // onChangeText={text => onChangeText(text)}
+        // value={value}
+        multiline={true}
+        disableFullscreenUI={false}
+      />
+    </View>
   )
 }
 
